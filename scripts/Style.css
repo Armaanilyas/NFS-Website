@@ -2,23 +2,30 @@ body{
     background-color: black;
 }
 h1 {
-    color: darkslategrey;
+    color: silver;
     margin-left: 20px;
     margin-right: 20px;
     text-align: center;
 }
 
 nav{
-    background-color: blueviolet;
-    border-bottom: 3px solid darkslategrey;
+    background-color: darkgoldenrod;
+    border-bottom: 3px solid ;
 }
+.navbar{
+background-color: darkgoldenrod;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
 .navbar-brand{
-    font-size: 24px;
+    font-size: 50px;
     font-weight: bold;
-    color: blueviolet;
+    color:silver ;
 }
 .nav-item a{
-    color: orange;
+    color: silver;
     font-size:18px;
 }
 .nav-item a:hover{
