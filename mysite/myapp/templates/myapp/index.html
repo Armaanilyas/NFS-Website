@@ -1,0 +1,50 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block title %}Home - NFS Perfumery{% endblock %}
+
+{% block content %}
+   <style>
+    body {
+      background-color: white; /* Set the background to white */
+    }
+    .carousel {
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+    }
+    .carousel img {
+      width: 100%;
+      height: 500px;
+        object-fit: cover;
+      display: none;
+      opacity: 0.8;
+      border-radius: 10px;
+    }
+    .carousel img.active {
+      display: block;
+    }
+  </style>
+
+  <h1 class="title">Welcome to NFS Perfumery</h1>
+
+
+  <div class="carousel">
+    <img src="{% static 'myapp/Images/FullCollection.jpg' %}" alt="Full Collection" class="active">
+    <img src="{% static 'myapp/Images/ErbaPura.jpg' %}" alt="Erba Pura">
+    <img src="{% static 'myapp/Images/GucciIntenseOud.jpg' %}" alt="Gucci Intense Oud">
+    <img src="{% static 'myapp/Images/OudKohl.jpg' %}" alt="Oud Kohl">
+    <img src="{% static 'myapp/Images/SantalPaoRosa.jpg' %}" alt="Santal Pao Rosa">
+    <img src="{% static 'myapp/Images/Sauvage.jpg' %}" alt="Sauvage">
+    <img src="{% static 'myapp/Images/SauvageElixir.jpg' %}" alt="Sauvage Elixir">
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel img');
+    setInterval(() => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 3000);
+  </script>
+{% endblock %}

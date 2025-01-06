@@ -1,0 +1,55 @@
+body{
+    background-color: white;
+}
+h1 {
+    color: black;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+nav{
+    background-color: darkgoldenrod;
+    border-bottom: 3px solid ;
+}
+.navbar{
+background-color: darkgoldenrod;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.navbar-item{
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+.navbar-item img{
+    object-fit: cover;
+    height: 100%;
+    width:auto;
+    max-height: 100px;
+    margin-top: 50px;
+}
+.navbar-brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.navbar-menu {
+    display: flex;
+    justify-content: center;
+}
+.nav-item a{
+    color: silver;
+    font-size:18px;
+}
+.nav-item a:hover{
+    color: cornsilk;
+}
+.navbar-item-has-dropdown:hover .navbar-dropdown{
+    display: block;
+}
