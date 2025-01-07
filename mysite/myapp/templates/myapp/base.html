@@ -11,18 +11,32 @@
 <body>
 
 <nav class="navbar is-light">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{% url 'index' %}">
+    <div class="navbar-brand"
+         style="display:flex;
+         align-items: center;
+         justify-content: center; width: 100%;">
+
+        <span class="navbar-title"
+              style="margin-right:10px;
+              font-weight: bold;
+              font-size: 20px;">
+           Unforgettable
+        </span>
+
+        <a class="navbar-item" href="{% url 'index' %}" style="margin: 0 10px;">
         <img src="{% static 'myapp/Images/logo.png' %}" alt="NFS Logo">
       </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
+
+        <span class="navbar-title"
+              style="margin-left:10px;
+              font-weight: bold;
+              font-size: 20px;">
+            Scents
+            </span>
     </div>
 
-    <div id="mainNavbar" class="navbar-menu">
+
+    <div id="navMenu" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="{% url 'index' %}">Home</a>
         <a class="navbar-item" href="{% url 'about' %}">About</a>
@@ -48,15 +62,5 @@
     </div>
   </section>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const burger = document.querySelector('.navbar-burger');
-        const menu = document.querySelector('.navbar-menu');
 
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('is-active');
-            menu.classList.toggle('is-active');
-        });
-    });
-</script>
 </html>

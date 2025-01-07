@@ -1,23 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-</head>
-<body>
-  <nav class="navbar is-light">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{% url 'index' %}">Home</a>
-    </div>
-  </nav>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Contact Us</h1>
-      <p class="content">Get in touch with us at NFS Perfumery!</p>
-    </div>
-  </section>
-</body>
-</html>
+{% extends 'myapp/base.html' %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+  <h1 class="title">Contact Us</h1>
+  <p class="content">Get in touch with us at NFS Perfumery!</p>
+{% endblock %}

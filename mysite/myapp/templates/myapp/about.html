@@ -1,31 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-</head>
-<body>
-  <nav class="navbar is-light">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{% url 'index' %}">NFS Perfumery</a>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href="{% url 'index' %}">Home</a>
-        <a class="navbar-item" href="{% url 'about' %}">About</a>
-        <a class="navbar-item" href="{% url 'featured_scents' %}">Featured Scents</a>
-      </div>
-    </div>
-  </nav>
+{% extends 'myapp/base.html' %}
+{% block title %}About Us{% endblock %}
 
-  <section class="section">
-    <div class="container">
-      <h1 class="title">About Us</h1>
-      <p class="content">NFS Perfumery is dedicated to providing unbiased niche perfume reviews. We believe every scent tells a story, and we're here to share those stories with you.</p>
-    </div>
-  </section>
-</body>
-</html>
+{% block content %}
+  <h1 class="title">About Us</h1>
+  <p class="content">NFS Perfumery is dedicated to providing unbiased niche perfume reviews. We believe every scent tells a story, and we're here to share those stories with you.</p>
+{% endblock %}

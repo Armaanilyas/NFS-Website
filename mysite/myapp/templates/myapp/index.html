@@ -7,22 +7,6 @@
     body {
       background-color: white; /* Set the background to white */
     }
-    .carousel {
-      max-width: 900px;
-      margin: auto;
-      position: relative;
-    }
-    .carousel img {
-      width: 100%;
-      height: 500px;
-        object-fit: cover;
-      display: none;
-      opacity: 0.8;
-      border-radius: 10px;
-    }
-    .carousel img.active {
-      display: block;
-    }
   </style>
 
   <h1 class="title">Welcome to NFS Perfumery</h1>
@@ -41,10 +25,11 @@
   <script>
     let currentIndex = 0;
     const images = document.querySelectorAll('.carousel img');
+    images [currentIndex].classList.add('active');
     setInterval(() => {
       images[currentIndex].classList.remove('active');
       currentIndex = (currentIndex + 1) % images.length;
       images[currentIndex].classList.add('active');
-    }, 3000);
+    } , 3000);
   </script>
 {% endblock %}
