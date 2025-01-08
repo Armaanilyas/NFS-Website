@@ -10,11 +10,12 @@
 </head>
 <body>
 
-<nav class="navbar is-light">
+<nav class="navbar">
     <div class="navbar-brand"
          style="display:flex;
          align-items: center;
-         justify-content: center; width: 100%;">
+         justify-content: center;
+         width: 100%;">
 
         <span class="navbar-title"
               style="margin-right:10px;
@@ -35,8 +36,13 @@
             </span>
     </div>
 
+    <div class="navbar-burger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-    <div id="navMenu" class="navbar-menu">
+    <div id="mainNavbar" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="{% url 'index' %}">Home</a>
         <a class="navbar-item" href="{% url 'about' %}">About</a>
@@ -62,5 +68,12 @@
     </div>
   </section>
 </body>
-
+<script>
+    function toggleMenu() {
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
+    }
+</script>
 </html>
