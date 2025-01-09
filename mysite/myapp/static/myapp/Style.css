@@ -17,7 +17,7 @@ nav-item a:hover{
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: lightgrey;
+  background-color: white;
     overflow: visible;
 }
 
@@ -130,6 +130,9 @@ h1 {
   z-index: 2;
 }
 
+.section{
+  height: 705px;
+}
 /* Footer Styling */
 footer {
   background-color: black;
