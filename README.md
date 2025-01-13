@@ -3,3 +3,5 @@
 Initial commit: 
 
 In this readme, you must pop in any details of your website work. you must also talk about any external repos etc that are used
+
+https://u.expressionengine.com/article/using-gmail-smtp-to-send-emails-from-your-website#:~:text=Configure%20Outgoing%20Email%20Settings%20in,page%2C%20and%20verify%20your%20settings.
