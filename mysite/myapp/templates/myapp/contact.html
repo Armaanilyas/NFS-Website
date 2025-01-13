@@ -1,19 +1,30 @@
 {% extends 'myapp/base.html' %}
-{% block title %}Contact Us{% endblock %}
-
 {% block content %}
-  <h1 class="title">Contact Us</h1>
-  <p class="content">Get in touch with us at NFS Perfumery!</p>
+    <h1 class="title">Contact Us</h1>
+    <p class="content" style="text-align:center"> Get in touch with us at NFS Perfumery!</p>
+
+    <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="fieldWrapper">
+            {{ form.name.errors }}
+            <label for="{{ form.name.id_for_label }}">Name:</label>
+            {{ form.name }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.email.errors }}
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            {{ form.email }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.message.errors }}
+            <label for="{{ form.message.id_for_label }}">Message:</label>
+            {{ form.message }}
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
 {% endblock %}
-
-
-<form action="/contact/" method="post">
-  {% csrf_token %}
-  {% for field in form %}
-      <div class="fieldWrapper">
-          {{ field.errors }}
-          {{ field.label_tag }} {{ field }}
-      </div>
-  {% endfor %}
-  <input type="submit" value="Submit">
-</form>
