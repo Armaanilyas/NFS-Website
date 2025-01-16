@@ -1,10 +1,12 @@
 
 from django.shortcuts import render, redirect
-from datetime import datetime
+from datetime import datetime, timezone
 from django import forms
 from django.core.mail import send_mail
 from django.conf import settings
-
+from django.db import models
+from .models import Perfume, Season, Contact
+from django.db.models import Q
 # Create your views here.
 
 class ContactForm(forms.Form):
@@ -12,11 +14,33 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea)
 def index(request):
-    return render(request, 'myapp/index.html')
+    season = ScentOfTheSeason
+    return render(request, 'myapp/index.html', {'season': season})
 def about(request):
     return render(request, 'myapp/about.html')
 
 
+def spring(request):
+    return render(request, 'myapp/spring.html')
+
+def summer(request):
+    return render(request, 'myapp/summer.html')
+
+def autumn(request):
+    return render(request, 'myapp/autumn.html')
+
+def winter(request):
+    perfume = Perfume.objects.get(name='Guerlain Oud Kohl')
+    return render(request, 'myapp/winter.html', {'perfume': perfume})
+
+def recommendations(request, season):
+    season_obj = Season.objects.get(name=season)
+    perfumes = Perfume.objects.filter(seasons=season_obj)
+    context = {
+        'season': season,
+        'perfumes': perfumes
+    }
+    return render(request, 'your_app/recommendations.html', context)
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -24,6 +48,12 @@ def contact(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
+
+            Contact.objects.create(
+                name=name,
+                email=email,
+                message=message,
+            )
 
             # First email (to admin)
             send_mail(
@@ -50,20 +80,40 @@ def contact(request):
 
     return render(request, template_name='myapp/contact.html', context={'form': form})
 
+
 def ScentOfTheSeason(request):
 
-    month = datetime.now().month
+    month = 9
+    #month = datetime.now().month
     if month in [12, 1, 2]:
-        season = "Winter"
+        season = "winter"
     elif month in [3, 4, 5]:
-        season = "Spring"
+        season = "spring"
     elif month in [6, 7, 8]:
-        season = "Summer"
+        season = "summer"
     else:
-        season = "Autumn"
+        season = "autumn"
 
 
     return render(request, 'myapp/index.html', {'season': season})
 
+
 def Success(request):
-    return render(request, 'myapp/Success.html')
+ latest_contact = Contact.objects.latest('id')
+ return render(request, template_name='myapp/success.html', context={'email': latest_contact.email})
+
+def search_perfumes(request):
+    query = request.GET.get('q', '')
+    if query:
+        perfumes = Perfume.objects.filter(
+            Q(name__icontains=query) |
+            Q(description__icontains=query)
+        )
+    else:
+        perfumes = Perfume.objects.none()
+
+    return render(request, 'myapp/search_results.html',{
+        'perfumes': perfumes,
+        'query': query
+
+    })

@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="title">Search Results</h1>
+    {% if query %}
+        <h2 class="subtitle">Results for "{{ query }}"</h2>
+    {% endif %}
+
+    {% if perfumes %}
+        <div class="columns is-multiline">
+            {% for perfume in perfumes %}
+            <div class="column is-4">
+                <div class="card">
+                    {% if perfume.image %}
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
+                            </figure>
+                        </div>
+                    {% endif %}
+                    <div class="card-content">
+                        <p class="title is-4">{{ perfume.name }}</p>
+                        <p class="subtitle is-6">{{ perfume.description }}</p>
+                        {% for season in perfume.seasons.all %}
+                            <span class="tag is-info">{{ season.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        {% if query %}
+            <p>No perfumes found matching your search.</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

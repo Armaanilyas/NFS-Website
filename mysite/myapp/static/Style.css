@@ -98,11 +98,12 @@ nav-item a:hover{
 body {
   background-color: white; /* Page background color */
   margin: 0;
-  font-family: Arial, sans-serif;
+
 }
 
 h1 {
-  color: black; /* Heading text color */
+  font:
+  color : black; /* Heading text color */
   margin: 20px;
   text-align: center;
 }
@@ -139,6 +140,9 @@ h1 {
   height: 705px;
 }
 
+/* contact form*/
+ .contact-form {
+        margin-top: 2rem;
 
 /* Footer Styling */
 footer {

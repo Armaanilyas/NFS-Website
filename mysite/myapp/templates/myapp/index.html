@@ -5,7 +5,7 @@
 {% block content %}
    <style>
     body {
-      background-color: white; /* Set the background to white */
+      background-color: white;
     }
   </style>
 
@@ -32,6 +32,15 @@
       images[currentIndex].classList.add('active');
     } , 3000);
   </script>
-    <a href="/{{ season }}-recommendations" class="button is-primary is-rounded">
-View {{ season|capfirst }} Perfume Recommendations</a>
+    <div class="columns is-centered mt-6">
+    <div class="column is-three-quarters">
+ <a href="{% url season|lower %}" class="button is-primary is-rounded is-medium is-fullwidth"
+ style="background-color: #000000 !important; color: #FFD700 !important;">
+
+    View Perfumes Of The Season
+
+</a>
+    </div>
+    </div>
+
 {% endblock %}

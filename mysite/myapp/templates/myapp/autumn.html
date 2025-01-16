@@ -1,0 +1,29 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="title">Autumn Perfume Recommendations</h1>
+
+</div>
+
+
+<div class="container">
+    <div class="card">
+        {% if perfume.image %}
+            <div class="card-image">
+                <figure class="image">
+                    <img src="{{ perfume.image.url }}" alt="Guerlain Oud Kohl">
+                </figure>
+            </div>
+        {% endif %}
+
+        <div class="card-content">
+            <h1 class="title">Guerlain Oud Kohl</h1>
+            <p class="subtitle">
+                Oud Kohl by Guerlain is a woody Chypre perfume, with strong notes of Damask Rose, Oud, and Ambergris.
+            </p>
+            <span class="tag is-info">winter</span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

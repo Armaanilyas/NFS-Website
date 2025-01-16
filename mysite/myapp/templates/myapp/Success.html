@@ -6,6 +6,13 @@
 {% block content %}
   <h1 class="title">Message Sent Successfully</h1>
 
+<div class="email-info">
+<p>Message sent from : <strong> {{ email }}</strong></p>
+</div>
+    <a href="/" class="button is-black has-text-warning is-rounded mt-4">
+    Home
+    </a>
+
 {%endblock %}
 
 <html lang="en">
@@ -23,17 +30,11 @@
         body {
 
             font-family: Arial, sans-serif;
-
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
             height: 100vh;
-
             margin: 0;
-
             background-color: #f4f4f4;
 
         }
@@ -41,15 +42,10 @@
         .success-message {
 
             text-align: center;
-
             padding: 20px;
-
             border: 2px solid #4caf50;
-
             border-radius: 5px;
-
             background-color: #dff0d8;
-
             color: #3c763d;
 
         }
@@ -65,6 +61,8 @@
         <h1>Success!</h1>
 
         <p>Your Message was Sent successfully.</p>
+        \n
+
 
     </div>
 

@@ -1,0 +1,29 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+    {% load static %}
+<div class="container">
+    <h1 class="title">Spring Perfume Recommendations</h1>
+
+</div>
+    <div class="container">
+        <div class="card">
+        {% if perfume.image %}
+            <div class="card-image">
+                <figure class="image">
+                    <img src="{%  static 'myapp/Images/ErbaPura.jpg' %}" alt="Xerjoff Erba Pura">
+                </figure>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+
+        <div class="card-content">
+            <h1 class="title">Xerjoff Erba Pura</h1>
+            <p class="subtitle">
+               Erba Pura is a delightfully juicy Unisex perfume, with fruity notes, and a white musk drydown.
+            </p>
+            <span class="tag is-info">Spring</span>
+
+
+        </div>
+{% endblock %}

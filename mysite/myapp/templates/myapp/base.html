@@ -5,10 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}NFS Perfumery{% endblock %}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="{% static 'myapp/../../static/myapp/../../static/Style.css' %}">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'myapp/../../static/myapp/../../static/Style.css' %}">
+ <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        h1, h2, h3, .title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .navbar-item {
+            font-family: 'Raleway', sans-serif;
+        }
+        </style>
 </head>
 <body>
+
+
+<form action="{% url 'search_perfumes' %}" method="GET" class="field has-addons">
+    <div class="control is-expanded">
+        <input class="input" type="text" name="q" placeholder="Search perfumes..." value="{{ request.GET.q }}">
+    </div>
+    <div class="control">
+        <button type="submit" class="button is-black has-text-warning">
+            Search
+        </button>
+    </div>
+</form>
 
 <nav class="navbar">
     <div class="navbar-brand"
@@ -51,10 +79,10 @@
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Featured Scents</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Spring Perfume Recommendations</a>
-            <a class="navbar-item" href="#">Summer Perfume Recommendations</a>
-            <a class="navbar-item" href="#">Autumn Perfume Recommendations</a>
-            <a class="navbar-item" href="#">Winter Perfume Recommendations</a>
+            <a class="navbar-item" href="{% url 'spring' %}">Spring Perfume Recommendations</a>
+            <a class="navbar-item" href="{% url 'summer' %}">Summer Perfume Recommendations</a>
+            <a class="navbar-item" href="{% url 'autumn' %}">Autumn Perfume Recommendations</a>
+            <a class="navbar-item" href="{% url 'winter' %}">Winter Perfume Recommendations</a>
           </div>
         </div>
       </div>
@@ -77,4 +105,5 @@
         menu.classList.toggle('is-active');
     }
 </script>
+
 </html>
